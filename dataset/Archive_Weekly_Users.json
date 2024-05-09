@@ -1,0 +1,24 @@
+{
+	"name": "Archive_Weekly_Users",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Linkeserviced_Datalake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "Archive/Archive_Users",
+				"container": "capstoneproject2-group8-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

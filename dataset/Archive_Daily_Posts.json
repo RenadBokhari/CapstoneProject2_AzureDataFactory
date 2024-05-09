@@ -1,0 +1,21 @@
+{
+	"name": "Archive_Daily_Posts",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Linkeserviced_Datalake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "Archive/Archive_Posts",
+				"container": "capstoneproject2-group8-container"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,9 @@
+{
+	"name": "CaptoneProject2-Group8-ADF",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2243b329-34d7-4615-ac2c-0d41b4a304e5",
+		"tenantId": "2d3194e3-1654-46bd-bae2-ad37ba11b0ae"
+	}
+}
