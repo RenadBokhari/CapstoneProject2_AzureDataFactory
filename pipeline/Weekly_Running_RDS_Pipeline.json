@@ -241,7 +241,7 @@
 			},
 			{
 				"name": "Delete Users",
-				"description": "delete users' data that exists in the destination folder of users in the datalake that is referred to the previous week.",
+				"description": "delete users' data that exists in the destination folder of users in the datalake (destination) that is referred to the previous week.",
 				"type": "Delete",
 				"dependsOn": [
 					{
@@ -281,7 +281,7 @@
 			},
 			{
 				"name": "Delete PostType",
-				"description": "delete posttype data that exists in the destination folder of posttype in the datalake that is referred to previous week.",
+				"description": "delete posttype data that exists in the destination folder of posttype in the datalake (destination) that is referred to previous week.",
 				"type": "Delete",
 				"dependsOn": [
 					{
