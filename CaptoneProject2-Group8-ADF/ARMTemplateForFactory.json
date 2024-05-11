@@ -917,6 +917,48 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/Daily_Running_PublicBlob_Pipeline')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Weekly_Running_Users_PostType')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "The Users and PostType will run every week, in a specific time that we will provide",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "Weekly_Running_RDS_Pipeline",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Week",
+						"interval": 1,
+						"startTime": "2024-05-11T18:23:00",
+						"timeZone": "E. Africa Standard Time",
+						"schedule": {
+							"minutes": [
+								0
+							],
+							"hours": [
+								9
+							],
+							"weekDays": [
+								"Sunday"
+							]
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/Weekly_Running_RDS_Pipeline')]"
+			]
 		}
 	]
 }
