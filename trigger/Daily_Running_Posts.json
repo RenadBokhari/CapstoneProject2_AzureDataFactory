@@ -1,0 +1,34 @@
+{
+	"name": "Daily_Running_Posts",
+	"properties": {
+		"description": "The posts will run everyday, in a specific time that we will provide",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Daily_Running_PublicBlob_Pipeline",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2024-05-11T18:12:00",
+				"endTime": "2024-05-18T15:00:00",
+				"timeZone": "Arab Standard Time",
+				"schedule": {
+					"minutes": [
+						0
+					],
+					"hours": [
+						9
+					]
+				}
+			}
+		}
+	}
+}

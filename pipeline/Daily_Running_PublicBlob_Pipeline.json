@@ -70,7 +70,7 @@
 			},
 			{
 				"name": "Delete posts data",
-				"description": "delete posts data that exists in the posts folder in the datalake that is referred to prevoius day.",
+				"description": "delete posts data that exists in the posts folder in the datalake(destination) that is referred to prevoius day.",
 				"type": "Delete",
 				"dependsOn": [
 					{
