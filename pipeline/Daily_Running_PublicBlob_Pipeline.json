@@ -5,10 +5,11 @@
 		"activities": [
 			{
 				"name": "Copy posts data",
+				"description": "Copy the posts data from the source file, to the destination folder in the datalake. ",
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Delete1",
+						"activity": "Delete posts data",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -68,8 +69,8 @@
 				]
 			},
 			{
-				"name": "Delete1",
-				"description": "delete posts data for prevoius day",
+				"name": "Delete posts data",
+				"description": "delete posts data that exists in the posts folder in the datalake that is referred to prevoius day.",
 				"type": "Delete",
 				"dependsOn": [
 					{
@@ -109,6 +110,7 @@
 			},
 			{
 				"name": "Copy Archive Posts",
+				"description": "It is copy data from the posts folder in datalake to store it into achive posts folder. That is help to have historical data.  ",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {

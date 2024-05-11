@@ -5,6 +5,7 @@
 		"activities": [
 			{
 				"name": "Copy Users",
+				"description": "Copy the users data from the source file, to the destination folder in the datalake. ",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -62,6 +63,7 @@
 			},
 			{
 				"name": "Copy PostType",
+				"description": "Copy the posttype data from the source file, to the destination folder in the datalake. ",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -119,6 +121,7 @@
 			},
 			{
 				"name": "Copy Archive PostType",
+				"description": "It copies data from the destination posttype folder in datalake to store it into archive posttype folder. That is helpful to have historical data.  ",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -178,6 +181,7 @@
 			},
 			{
 				"name": "Copy Archive Users",
+				"description": "It copies data from the destination users folder in datalake to store it into archive users folder. That is helpful to have historical data.  ",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -237,6 +241,7 @@
 			},
 			{
 				"name": "Delete Users",
+				"description": "delete users' data that exists in the destination folder of users in the datalake that is referred to the previous week.",
 				"type": "Delete",
 				"dependsOn": [
 					{
@@ -276,6 +281,7 @@
 			},
 			{
 				"name": "Delete PostType",
+				"description": "delete posttype data that exists in the destination folder of posttype in the datalake that is referred to previous week.",
 				"type": "Delete",
 				"dependsOn": [
 					{
