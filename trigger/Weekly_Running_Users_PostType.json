@@ -1,6 +1,7 @@
 {
 	"name": "Weekly_Running_Users_PostType",
 	"properties": {
+		"description": "The Users and PostType will run every week, in a specific time that we will provide",
 		"annotations": [],
 		"runtimeState": "Started",
 		"pipelines": [
