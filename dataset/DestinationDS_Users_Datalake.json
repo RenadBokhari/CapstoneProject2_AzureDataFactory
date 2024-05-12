@@ -1,0 +1,24 @@
+{
+	"name": "DestinationDS_Users_Datalake",
+	"properties": {
+		"description": "After copying th data from source we will store it in the Datalake which is the destination.",
+		"linkedServiceName": {
+			"referenceName": "Linkeserviced_Datalake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "Landing_DataLake_Folders/Users_Destination_Datalake",
+				"container": "capstoneproject2-group8-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

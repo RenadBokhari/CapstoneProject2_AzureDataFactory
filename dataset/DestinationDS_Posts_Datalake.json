@@ -1,0 +1,21 @@
+{
+	"name": "DestinationDS_Posts_Datalake",
+	"properties": {
+		"description": "After copying the data from source \"Source_posts\" we will store it in the Datalake in specific folder for \"Destination_posts\" which is the destination.",
+		"linkedServiceName": {
+			"referenceName": "Linkeserviced_Datalake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "Landing_DataLake_Folders/Posts_Destination_Datalake",
+				"container": "capstoneproject2-group8-container"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
