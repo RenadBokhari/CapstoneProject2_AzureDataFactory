@@ -1,0 +1,22 @@
+{
+	"name": "Source_Users_PublicBlob_WCD",
+	"properties": {
+		"description": "The dataset from the source WCD PublicBlob, will stored her ",
+		"linkedServiceName": {
+			"referenceName": "LinkedService_PublicBlob_WCD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "*.parquet",
+				"folderPath": "Posts_today",
+				"container": "de-project-st"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
