@@ -1,0 +1,13 @@
+{
+	"name": "ls_my_blob",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "ls_my_blob is a linked service designed to establish a connection with your own storage blob. It serves as a crucial component for both pipelines, enabling seamless integration and access to your blob storage resources. This linked service facilitates efficient data handling and processing tasks across the pipelines, ensuring smooth data flow and management within your storage environment.",
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=capstoneprojectstorageg8;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDA1NkI5RTUwLTg4OTEtNDk4My1CRURGLTk5RDk2RDg0MDU2Ql81NzJlNjIzNS04YjIyLTQxNzEtYWFjNS1iNGRkYmJmNzM2NmQiDQp9"
+		}
+	}
+}

@@ -2,7 +2,7 @@
 	"name": "Archive_Daily_Posts",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "Linkeserviced_Datalake",
+			"referenceName": "LinkedService_Archive",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "Archive/Archive_Posts",
-				"container": "capstoneproject2-group8-container"
+				"folderPath": "landing/Archive/Archive_Posts",
+				"container": "capstone-project-container"
 			},
 			"compressionCodec": "snappy"
 		},

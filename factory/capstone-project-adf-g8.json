@@ -1,0 +1,9 @@
+{
+	"name": "capstone-project-adf-g8",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "aaa490e1-ed59-459a-bc3e-0dfb7e1f0f6d",
+		"tenantId": "68370c2f-9347-4298-bbac-d9697e8dfef5"
+	}
+}

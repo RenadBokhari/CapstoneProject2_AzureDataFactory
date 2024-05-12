@@ -1,9 +1,8 @@
 {
 	"name": "DestinationDS_Users_Datalake",
 	"properties": {
-		"description": "We copied the Users dataset from the source in RDS to ==> destination folder in datalake or container",
 		"linkedServiceName": {
-			"referenceName": "Linkeserviced_Datalake",
+			"referenceName": "ls_my_blob",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -11,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "Landing_DataLake_Folders/Users_Destination_Datalake",
-				"container": "capstoneproject2-group8-container"
+				"folderPath": "landing/users",
+				"container": "capstone-project-container"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

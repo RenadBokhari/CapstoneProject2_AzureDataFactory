@@ -1,8 +1,8 @@
 {
-	"name": "DestinationDS_Posts_Datalake",
+	"name": "SourceDS_Posts_PublicBlob_WCD",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_my_blob",
+			"referenceName": "ls_wcd_blob",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "landing/posts",
-				"container": "capstone-project-container"
+				"folderPath": "Posts_today",
+				"container": "de-project-st"
 			},
 			"compressionCodec": "snappy"
 		},

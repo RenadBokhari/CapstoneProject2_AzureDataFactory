@@ -1,8 +1,8 @@
 {
-	"name": "DestinationDS_PostType_Datalake",
+	"name": "Archive_Weekly_Posttype",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_my_blob",
+			"referenceName": "LinkedService_Archive",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "landing/posttypes",
+				"folderPath": "landing/Archive/Archive_Posttypes",
 				"container": "capstone-project-container"
 			},
 			"columnDelimiter": ",",
