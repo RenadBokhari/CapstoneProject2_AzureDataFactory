@@ -1,0 +1,9 @@
+{
+	"name": "CapstoneProject2-G8-ADF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "134ddc14-1d41-42bf-b14b-26cc847c3adb",
+		"tenantId": "68370c2f-9347-4298-bbac-d9697e8dfef5"
+	}
+}
