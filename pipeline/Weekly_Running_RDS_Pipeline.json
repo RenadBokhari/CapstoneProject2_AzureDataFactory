@@ -243,7 +243,14 @@
 				"name": "Delete Users",
 				"description": "delete users' data that exists in the destination folder of users in the datalake (destination) that is referred to the previous week.",
 				"type": "Delete",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Copy Archive Users",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
