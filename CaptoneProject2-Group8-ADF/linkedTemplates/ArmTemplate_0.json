@@ -129,7 +129,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Archive_Weekly_PostType')]",
+			"name": "[concat(parameters('factoryName'), '/Archive_Weekly_Posttype')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -189,7 +189,7 @@
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "We copied the PostType dataset from the source in RDS to ==> destination folder in datalake or container",
+				"description": "After copying the data from source \"posttype\" we will store it in the Datalake in specific folder for \"posttype\" which is the destination.",
 				"linkedServiceName": {
 					"referenceName": "Linkeserviced_Datalake",
 					"type": "LinkedServiceReference"
@@ -218,7 +218,7 @@
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "We copied the Posts dataset from the source in WCD blob storage to ==> destination folder in datalake or container which called  Posts_Destination_Datalake",
+				"description": "After copying the data from source \"Source_posts\" we will store it in the Datalake in specific folder for \"Destination_posts\" which is the destination.",
 				"linkedServiceName": {
 					"referenceName": "Linkeserviced_Datalake",
 					"type": "LinkedServiceReference"
@@ -244,7 +244,7 @@
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "We copied the Users dataset from the source in RDS to ==> destination folder in datalake or container",
+				"description": "After copying th data from source we will store it in the Datalake which is the destination.",
 				"linkedServiceName": {
 					"referenceName": "Linkeserviced_Datalake",
 					"type": "LinkedServiceReference"
@@ -295,7 +295,7 @@
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "This is the data source for StackOverFlow Posts it will upload here . It comes from blob storage for WeCloudData.",
+				"description": "The dataset from the source WCD PublicBlob, will stored her ",
 				"linkedServiceName": {
 					"referenceName": "LinkedService_PublicBlob_WCD",
 					"type": "LinkedServiceReference"
@@ -536,7 +536,7 @@
 				"description": "This pipeline contains both Users and PostType data. Which come from Amazon RDS. \nIn addition, it will be updated every week in specific time that will schedule it.",
 				"activities": [
 					{
-						"name": "Copy Users",
+						"name": "Copy Users Data",
 						"description": "Copy the users data from the source file, to the destination folder in the datalake. ",
 						"type": "Copy",
 						"dependsOn": [
@@ -596,7 +596,7 @@
 						]
 					},
 					{
-						"name": "Copy PostType",
+						"name": "Copy PostType Data",
 						"description": "Copy the posttype data from the source file, to the destination folder in the datalake. ",
 						"type": "Copy",
 						"dependsOn": [
@@ -711,7 +711,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "Archive_Weekly_PostType",
+								"referenceName": "Archive_Weekly_Posttype",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -873,7 +873,7 @@
 				"[concat(variables('factoryId'), '/datasets/DestinationDS_Users_Datalake')]",
 				"[concat(variables('factoryId'), '/datasets/Source_PostType_RDS_postgres')]",
 				"[concat(variables('factoryId'), '/datasets/DestinationDS_PostType_Datalake')]",
-				"[concat(variables('factoryId'), '/datasets/Archive_Weekly_PostType')]",
+				"[concat(variables('factoryId'), '/datasets/Archive_Weekly_Posttype')]",
 				"[concat(variables('factoryId'), '/datasets/Archive_Weekly_Users')]",
 				"[concat(variables('factoryId'), '/linkedServices/Linkeserviced_Datalake')]"
 			]
