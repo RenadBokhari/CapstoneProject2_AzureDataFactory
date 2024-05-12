@@ -4,7 +4,7 @@
 		"description": "This pipeline contains both Users and PostType data. Which come from Amazon RDS. \nIn addition, it will be updated every week in specific time that will schedule it.",
 		"activities": [
 			{
-				"name": "Copy Users",
+				"name": "Copy Users Data",
 				"description": "Copy the users data from the source file, to the destination folder in the datalake. ",
 				"type": "Copy",
 				"dependsOn": [
@@ -38,17 +38,31 @@
 							"fileExtension": ".txt"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
 						"referenceName": "Source_Users_RDS_postgres",
 						"type": "DatasetReference"
 					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDS_Users_Datalake",
+						"type": "DatasetReference"
+					}
 				]
 			},
 			{
-				"name": "Copy PostType",
+				"name": "Copy PostType Data",
 				"description": "Copy the posttype data from the source file, to the destination folder in the datalake. ",
 				"type": "Copy",
 				"dependsOn": [
@@ -82,11 +96,25 @@
 							"fileExtension": ".txt"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
 						"referenceName": "Source_PostType_RDS_postgres",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDS_PostType_Datalake",
 						"type": "DatasetReference"
 					}
 				]
@@ -128,8 +156,22 @@
 							"fileExtension": ".txt"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
+				"inputs": [
+					{
+						"referenceName": "DestinationDS_PostType_Datalake",
+						"type": "DatasetReference"
+					}
+				],
 				"outputs": [
 					{
 						"referenceName": "Archive_Weekly_Posttype",
@@ -174,8 +216,22 @@
 							"fileExtension": ".txt"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
+				"inputs": [
+					{
+						"referenceName": "DestinationDS_Users_Datalake",
+						"type": "DatasetReference"
+					}
+				],
 				"outputs": [
 					{
 						"referenceName": "Archive_Weekly_Users",
@@ -204,6 +260,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"dataset": {
+						"referenceName": "DestinationDS_Users_Datalake",
+						"type": "DatasetReference"
+					},
 					"logStorageSettings": {
 						"linkedServiceName": {
 							"referenceName": "Linkeserviced_Datalake",
@@ -240,6 +300,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"dataset": {
+						"referenceName": "DestinationDS_PostType_Datalake",
+						"type": "DatasetReference"
+					},
 					"logStorageSettings": {
 						"linkedServiceName": {
 							"referenceName": "Linkeserviced_Datalake",
