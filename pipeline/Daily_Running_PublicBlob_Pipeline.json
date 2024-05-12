@@ -72,14 +72,7 @@
 				"name": "Delete posts data",
 				"description": "delete posts data that exists in the posts folder in the datalake(destination) that is referred to prevoius day.",
 				"type": "Delete",
-				"dependsOn": [
-					{
-						"activity": "Copy Archive Posts",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,

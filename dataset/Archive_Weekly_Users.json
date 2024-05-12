@@ -2,7 +2,7 @@
 	"name": "Archive_Weekly_Users",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LinkedService_Archive",
+			"referenceName": "Linkeserviced_Datalake",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "landing/Archive/Archive_Users",
-				"container": "capstone-project-container"
+				"folderPath": "Archive/Archive_Users",
+				"container": "capstoneproject2-group8-container"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
