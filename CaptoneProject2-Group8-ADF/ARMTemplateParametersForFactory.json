@@ -8,6 +8,9 @@
 		"LinkedService_Archive_connectionString": {
 			"value": ""
 		},
+		"LinkedService_Databricks_NLP_posts_accessToken": {
+			"value": ""
+		},
 		"LinkedService_PublicBlob_WCD_connectionString": {
 			"value": ""
 		},
@@ -16,6 +19,9 @@
 		},
 		"Linkeserviced_Datalake_connectionString": {
 			"value": ""
+		},
+		"LinkedService_Databricks_NLP_posts_properties_typeProperties_existingClusterId": {
+			"value": "0510-165754-cf53jv82"
 		},
 		"LinkedService_RDS_Postgres_properties_typeProperties_server": {
 			"value": "de-rds.czm23kqmbd6o.ca-central-1.rds.amazonaws.com"

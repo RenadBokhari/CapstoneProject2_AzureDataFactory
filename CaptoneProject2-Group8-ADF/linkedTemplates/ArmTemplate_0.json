@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LinkedService_Archive'"
 		},
+		"LinkedService_Databricks_NLP_posts_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'LinkedService_Databricks_NLP_posts'"
+		},
 		"LinkedService_PublicBlob_WCD_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LinkedService_PublicBlob_WCD'"
@@ -22,6 +26,10 @@
 		"Linkeserviced_Datalake_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Linkeserviced_Datalake'"
+		},
+		"LinkedService_Databricks_NLP_posts_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0510-165754-cf53jv82"
 		},
 		"LinkedService_RDS_Postgres_properties_typeProperties_server": {
 			"type": "string",
@@ -49,6 +57,25 @@
 				"type": "AzureBlobStorage",
 				"typeProperties": {
 					"connectionString": "[parameters('LinkedService_Archive_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LinkedService_Databricks_NLP_posts')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Link the pipeline with the Databricks notebook for NLP",
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-560590091399003.3.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('LinkedService_Databricks_NLP_posts_accessToken')]"
+					},
+					"existingClusterId": "[parameters('LinkedService_Databricks_NLP_posts_properties_typeProperties_existingClusterId')]"
 				}
 			},
 			"dependsOn": []
@@ -306,7 +333,7 @@
 					"location": {
 						"type": "AzureBlobStorageLocation",
 						"fileName": "*.parquet",
-						"folderPath": "Posts_today",
+						"folderPath": "archive",
 						"container": "de-project-st"
 					},
 					"compressionCodec": "snappy"
@@ -513,6 +540,34 @@
 								"parameters": {}
 							}
 						]
+					},
+					{
+						"name": "Run NLP",
+						"description": "In This \"ML_Sentiment_Analysis_NLP\" notebook we'll run the ML Model on data of \"Posts_destination_datalake\" ",
+						"type": "DatabricksNotebook",
+						"dependsOn": [
+							{
+								"activity": "Copy posts data",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Users/1707458@stu.kau.edu.sa/ML_Sentiment_Analysis_NLP"
+						},
+						"linkedServiceName": {
+							"referenceName": "LinkedService_Databricks_NLP_posts",
+							"type": "LinkedServiceReference"
+						}
 					}
 				],
 				"policy": {
@@ -525,6 +580,7 @@
 				"[concat(variables('factoryId'), '/datasets/Source_Posts_PublicBlob_WCD')]",
 				"[concat(variables('factoryId'), '/datasets/DestinationDS_Posts_Datalake')]",
 				"[concat(variables('factoryId'), '/datasets/Archive_Daily_Posts')]",
+				"[concat(variables('factoryId'), '/linkedServices/LinkedService_Databricks_NLP_posts')]",
 				"[concat(variables('factoryId'), '/linkedServices/Linkeserviced_Datalake')]"
 			]
 		},

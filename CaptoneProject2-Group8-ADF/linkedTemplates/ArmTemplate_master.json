@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LinkedService_Archive'"
 		},
+		"LinkedService_Databricks_NLP_posts_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'LinkedService_Databricks_NLP_posts'"
+		},
 		"LinkedService_PublicBlob_WCD_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LinkedService_PublicBlob_WCD'"
@@ -22,6 +26,10 @@
 		"Linkeserviced_Datalake_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Linkeserviced_Datalake'"
+		},
+		"LinkedService_Databricks_NLP_posts_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0510-165754-cf53jv82"
 		},
 		"LinkedService_RDS_Postgres_properties_typeProperties_server": {
 			"type": "string",
@@ -65,6 +73,9 @@
 					"LinkedService_Archive_connectionString": {
 						"value": "[parameters('LinkedService_Archive_connectionString')]"
 					},
+					"LinkedService_Databricks_NLP_posts_accessToken": {
+						"value": "[parameters('LinkedService_Databricks_NLP_posts_accessToken')]"
+					},
 					"LinkedService_PublicBlob_WCD_connectionString": {
 						"value": "[parameters('LinkedService_PublicBlob_WCD_connectionString')]"
 					},
@@ -73,6 +84,9 @@
 					},
 					"Linkeserviced_Datalake_connectionString": {
 						"value": "[parameters('Linkeserviced_Datalake_connectionString')]"
+					},
+					"LinkedService_Databricks_NLP_posts_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('LinkedService_Databricks_NLP_posts_properties_typeProperties_existingClusterId')]"
 					},
 					"LinkedService_RDS_Postgres_properties_typeProperties_server": {
 						"value": "[parameters('LinkedService_RDS_Postgres_properties_typeProperties_server')]"
