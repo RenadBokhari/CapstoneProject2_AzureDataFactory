@@ -165,6 +165,34 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Run NLP",
+				"description": "In This \"ML_Sentiment_Analysis_NLP\" notebook we'll run the ML Model on data of \"Posts_destination_datalake\" ",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Copy posts data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/1707458@stu.kau.edu.sa/ML_Sentiment_Analysis_NLP"
+				},
+				"linkedServiceName": {
+					"referenceName": "LinkedService_Databricks_NLP_posts",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": [],
