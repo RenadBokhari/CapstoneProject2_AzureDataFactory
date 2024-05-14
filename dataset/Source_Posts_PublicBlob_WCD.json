@@ -12,7 +12,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "*.parquet",
-				"folderPath": "Posts_today",
+				"folderPath": "archive",
 				"container": "de-project-st"
 			},
 			"compressionCodec": "snappy"
