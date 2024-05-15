@@ -195,7 +195,8 @@
 				}
 			},
 			{
-				"name": "Convert Parquet to CSV",
+				"name": "Convert Posts from Parquet to CSV",
+				"description": "Here we will Convert Posts from Parquet to CSV to use it in the Visualization ",
 				"type": "DatabricksNotebook",
 				"dependsOn": [
 					{
