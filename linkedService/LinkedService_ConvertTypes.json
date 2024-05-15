@@ -1,0 +1,13 @@
+{
+	"name": "LinkedService_ConvertTypes",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "use t to convert the types of files in datalake ==> csv file ",
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=capstone2group8storage;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDhGNzRGMEVFLUZEQTItNEJFQS1CMjMxLUI3OUUxOTc4QUZCRl9kMzQxYjZiYy1jZmQ2LTQ1M2QtYmRiOS1kNjk5MTljZjAwNmMiDQp9"
+		}
+	}
+}

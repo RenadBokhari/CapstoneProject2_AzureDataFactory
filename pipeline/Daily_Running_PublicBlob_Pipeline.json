@@ -193,6 +193,34 @@
 					"referenceName": "LinkedService_Databricks_NLP_posts",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "Convert Posts from Parquet to CSV",
+				"description": "Here we will Convert Posts from Parquet to CSV to use it in the Visualization ",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Copy posts data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/1707458@stu.kau.edu.sa/Convert_Posts_Parquet_2_CSV"
+				},
+				"linkedServiceName": {
+					"referenceName": "LinkedService_Databricks_NLP_posts",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": [],
