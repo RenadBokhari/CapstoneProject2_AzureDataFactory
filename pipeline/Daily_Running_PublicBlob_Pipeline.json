@@ -195,7 +195,7 @@
 				}
 			},
 			{
-				"name": "Notebook1",
+				"name": "Convert Parquet to CSV",
 				"type": "DatabricksNotebook",
 				"dependsOn": [
 					{
