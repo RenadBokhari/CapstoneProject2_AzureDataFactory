@@ -318,6 +318,27 @@
 						"enablePartitionDiscovery": false
 					}
 				}
+			},
+			{
+				"name": "Convert Usres from Text to CSV",
+				"description": "Here we will Convert Users from Text to CSV to use it in the Visualization ",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Copy Users Data to Datalake",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": []
 			}
 		],
 		"annotations": [],
