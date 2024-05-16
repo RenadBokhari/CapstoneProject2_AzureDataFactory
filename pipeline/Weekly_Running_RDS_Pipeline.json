@@ -9,7 +9,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Delete Users",
+						"activity": "Delete Users Datalake",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -67,7 +67,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Delete PostType",
+						"activity": "Delete PostType Datalake",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -240,7 +240,7 @@
 				]
 			},
 			{
-				"name": "Delete Users",
+				"name": "Delete Users Datalake",
 				"description": "delete users' data that exists in the destination folder of users in the datalake (destination) that is referred to the previous week.",
 				"type": "Delete",
 				"dependsOn": [
@@ -280,7 +280,7 @@
 				}
 			},
 			{
-				"name": "Delete PostType",
+				"name": "Delete PostType Datalake",
 				"description": "delete posttype data that exists in the destination folder of posttype in the datalake (destination) that is referred to previous week.",
 				"type": "Delete",
 				"dependsOn": [
