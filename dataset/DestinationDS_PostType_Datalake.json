@@ -11,7 +11,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "PostType.csv",
 				"folderPath": "Landing_DataLake_Folders/PostTypes_Destination_Datalake",
 				"container": "capstoneproject2-group8-container"
 			},

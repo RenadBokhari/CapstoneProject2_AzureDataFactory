@@ -4,7 +4,7 @@
 		"description": "This pipeline contains Posts data. Which come from Public Blob Storage. \nIn addition, it will be updated every day in specific time that will schedule it.\n\n",
 		"activities": [
 			{
-				"name": "Copy posts data",
+				"name": "Copy posts data to Datalake",
 				"description": "Copy the posts data from the source file, to the destination folder in the datalake. ",
 				"type": "Copy",
 				"dependsOn": [
@@ -172,7 +172,7 @@
 				"type": "DatabricksNotebook",
 				"dependsOn": [
 					{
-						"activity": "Copy posts data",
+						"activity": "Copy posts data to Datalake",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -200,7 +200,7 @@
 				"type": "DatabricksNotebook",
 				"dependsOn": [
 					{
-						"activity": "Copy posts data",
+						"activity": "Copy posts data to Datalake",
 						"dependencyConditions": [
 							"Succeeded"
 						]
