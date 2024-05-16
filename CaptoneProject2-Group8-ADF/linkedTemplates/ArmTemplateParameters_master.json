@@ -8,6 +8,9 @@
 		"LinkedService_Archive_connectionString": {
 			"value": ""
 		},
+		"LinkedService_ConvertTypes_connectionString": {
+			"value": ""
+		},
 		"LinkedService_Databricks_NLP_posts_accessToken": {
 			"value": ""
 		},

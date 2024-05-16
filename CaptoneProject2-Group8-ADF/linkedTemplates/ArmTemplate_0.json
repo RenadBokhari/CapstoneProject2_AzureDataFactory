@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LinkedService_Archive'"
 		},
+		"LinkedService_ConvertTypes_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LinkedService_ConvertTypes'"
+		},
 		"LinkedService_Databricks_NLP_posts_accessToken": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'LinkedService_Databricks_NLP_posts'"
@@ -57,6 +61,20 @@
 				"type": "AzureBlobStorage",
 				"typeProperties": {
 					"connectionString": "[parameters('LinkedService_Archive_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LinkedService_ConvertTypes')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "use t to convert the types of files in datalake ==> csv file ",
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('LinkedService_ConvertTypes_connectionString')]"
 				}
 			},
 			"dependsOn": []
@@ -374,12 +392,12 @@
 				"description": "This pipeline contains Posts data. Which come from Public Blob Storage. \nIn addition, it will be updated every day in specific time that will schedule it.\n\n",
 				"activities": [
 					{
-						"name": "Copy posts data",
+						"name": "Copy posts data to Datalake",
 						"description": "Copy the posts data from the source file, to the destination folder in the datalake. ",
 						"type": "Copy",
 						"dependsOn": [
 							{
-								"activity": "Delete posts data",
+								"activity": "Delete posts data from Datalake",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -441,7 +459,7 @@
 						]
 					},
 					{
-						"name": "Delete posts data",
+						"name": "Delete posts data from Datalake",
 						"description": "delete posts data that exists in the posts folder in the datalake(destination) that is referred to prevoius day.",
 						"type": "Delete",
 						"dependsOn": [
@@ -547,7 +565,7 @@
 						"type": "DatabricksNotebook",
 						"dependsOn": [
 							{
-								"activity": "Copy posts data",
+								"activity": "Copy posts data to Datalake",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -562,7 +580,35 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"notebookPath": "/Users/1707458@stu.kau.edu.sa/ML_Sentiment_Analysis_NLP"
+							"notebookPath": "/Users/1707458@stu.kau.edu.sa/CP2_G8-ML_Sentiment_Analysis_NLP"
+						},
+						"linkedServiceName": {
+							"referenceName": "LinkedService_Databricks_NLP_posts",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Convert Posts from Parquet to CSV",
+						"description": "Here we will Convert Posts from Parquet to CSV to use it in the Visualization ",
+						"type": "DatabricksNotebook",
+						"dependsOn": [
+							{
+								"activity": "Copy posts data to Datalake",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Users/1707458@stu.kau.edu.sa/CP2_G8-Convert_Posts_Parquet_2_CSV"
 						},
 						"linkedServiceName": {
 							"referenceName": "LinkedService_Databricks_NLP_posts",
@@ -592,12 +638,12 @@
 				"description": "This pipeline contains both Users and PostType data. Which come from Amazon RDS. \nIn addition, it will be updated every week in specific time that will schedule it.",
 				"activities": [
 					{
-						"name": "Copy Users Data",
+						"name": "Copy Users Data to Datalake",
 						"description": "Copy the users data from the source file, to the destination folder in the datalake. ",
 						"type": "Copy",
 						"dependsOn": [
 							{
-								"activity": "Delete Users",
+								"activity": "Delete Users Datalake",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -652,12 +698,12 @@
 						]
 					},
 					{
-						"name": "Copy PostType Data",
+						"name": "Copy PostType Data to Datalake",
 						"description": "Copy the posttype data from the source file, to the destination folder in the datalake. ",
 						"type": "Copy",
 						"dependsOn": [
 							{
-								"activity": "Delete PostType",
+								"activity": "Delete PostType Datalake",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -836,7 +882,7 @@
 						]
 					},
 					{
-						"name": "Delete Users",
+						"name": "Delete Users Datalake",
 						"description": "delete users' data that exists in the destination folder of users in the datalake (destination) that is referred to the previous week.",
 						"type": "Delete",
 						"dependsOn": [
@@ -877,7 +923,7 @@
 						}
 					},
 					{
-						"name": "Delete PostType",
+						"name": "Delete PostType Datalake",
 						"description": "delete posttype data that exists in the destination folder of posttype in the datalake (destination) that is referred to previous week.",
 						"type": "Delete",
 						"dependsOn": [
@@ -916,6 +962,34 @@
 								"enablePartitionDiscovery": false
 							}
 						}
+					},
+					{
+						"name": "Convert Usres from Text to CSV",
+						"description": "Here we will Convert Users from Text to CSV to use it in the Visualization ",
+						"type": "DatabricksNotebook",
+						"dependsOn": [
+							{
+								"activity": "Copy Users Data to Datalake",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Users/1707458@stu.kau.edu.sa/Convert_Usres_text_2_CSV"
+						},
+						"linkedServiceName": {
+							"referenceName": "LinkedService_Databricks_NLP_posts",
+							"type": "LinkedServiceReference"
+						}
 					}
 				],
 				"policy": {
@@ -931,6 +1005,7 @@
 				"[concat(variables('factoryId'), '/datasets/DestinationDS_PostType_Datalake')]",
 				"[concat(variables('factoryId'), '/datasets/Archive_Weekly_Posttype')]",
 				"[concat(variables('factoryId'), '/datasets/Archive_Weekly_Users')]",
+				"[concat(variables('factoryId'), '/linkedServices/LinkedService_Databricks_NLP_posts')]",
 				"[concat(variables('factoryId'), '/linkedServices/Linkeserviced_Datalake')]"
 			]
 		},

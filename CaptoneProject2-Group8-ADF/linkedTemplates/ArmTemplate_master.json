@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LinkedService_Archive'"
 		},
+		"LinkedService_ConvertTypes_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LinkedService_ConvertTypes'"
+		},
 		"LinkedService_Databricks_NLP_posts_accessToken": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'LinkedService_Databricks_NLP_posts'"
@@ -72,6 +76,9 @@
 					},
 					"LinkedService_Archive_connectionString": {
 						"value": "[parameters('LinkedService_Archive_connectionString')]"
+					},
+					"LinkedService_ConvertTypes_connectionString": {
+						"value": "[parameters('LinkedService_ConvertTypes_connectionString')]"
 					},
 					"LinkedService_Databricks_NLP_posts_accessToken": {
 						"value": "[parameters('LinkedService_Databricks_NLP_posts_accessToken')]"
