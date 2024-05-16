@@ -338,7 +338,14 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/1707458@stu.kau.edu.sa/Convert_Usres_text_2_CSV"
+				},
+				"linkedServiceName": {
+					"referenceName": "LinkedService_Databricks_NLP_posts",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": [],

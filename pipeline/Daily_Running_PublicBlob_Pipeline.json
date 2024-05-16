@@ -9,7 +9,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Delete posts data",
+						"activity": "Delete posts data from Datalake",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -69,7 +69,7 @@
 				]
 			},
 			{
-				"name": "Delete posts data",
+				"name": "Delete posts data from Datalake",
 				"description": "delete posts data that exists in the posts folder in the datalake(destination) that is referred to prevoius day.",
 				"type": "Delete",
 				"dependsOn": [
