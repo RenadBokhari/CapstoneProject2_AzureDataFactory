@@ -187,7 +187,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/1707458@stu.kau.edu.sa/ML_Sentiment_Analysis_NLP"
+					"notebookPath": "/Users/1707458@stu.kau.edu.sa/CP2_G8-ML_Sentiment_Analysis_NLP"
 				},
 				"linkedServiceName": {
 					"referenceName": "LinkedService_Databricks_NLP_posts",
@@ -215,7 +215,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/1707458@stu.kau.edu.sa/Convert_Posts_Parquet_2_CSV"
+					"notebookPath": "/Users/1707458@stu.kau.edu.sa/CP2_G8-Convert_Posts_Parquet_2_CSV"
 				},
 				"linkedServiceName": {
 					"referenceName": "LinkedService_Databricks_NLP_posts",
