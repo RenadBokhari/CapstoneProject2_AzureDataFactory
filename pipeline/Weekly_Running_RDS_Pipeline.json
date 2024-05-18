@@ -266,8 +266,11 @@
 					},
 					"logStorageSettings": {
 						"linkedServiceName": {
-							"referenceName": "Linkeserviced_Datalake",
-							"type": "LinkedServiceReference"
+							"referenceName": "LinkedService_Datalake_SystemManaged",
+							"type": "LinkedServiceReference",
+							"parameters": {
+								"ls_prm_service_endpoint": "https://capstone2group8storage.blob.core.windows.net/"
+							}
 						},
 						"path": "capstoneproject2-group8-container/Landing_DataLake_Folders/logs/Users_Logs"
 					},
@@ -306,8 +309,11 @@
 					},
 					"logStorageSettings": {
 						"linkedServiceName": {
-							"referenceName": "Linkeserviced_Datalake",
-							"type": "LinkedServiceReference"
+							"referenceName": "LinkedService_Datalake_SystemManaged",
+							"type": "LinkedServiceReference",
+							"parameters": {
+								"ls_prm_service_endpoint": "https://capstone2group8storage.blob.core.windows.net/"
+							}
 						},
 						"path": "capstoneproject2-group8-container/Landing_DataLake_Folders/logs/PostType_Logs"
 					},
