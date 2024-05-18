@@ -2,10 +2,16 @@
 	"name": "LinkedService_Datalake_SystemManaged",
 	"properties": {
 		"description": "This linked service will used to connect destination datasets & Datalake.",
+		"parameters": {
+			"ls_prm_service_endpoint": {
+				"type": "string",
+				"defaultValue": "https://capstone2group8storage.blob.core.windows.net/"
+			}
+		},
 		"annotations": [],
 		"type": "AzureBlobStorage",
 		"typeProperties": {
-			"serviceEndpoint": "https://capstone2group8storage.blob.core.windows.net/",
+			"serviceEndpoint": "@{linkedService().ls_prm_service_endpoint}",
 			"accountKind": "StorageV2"
 		}
 	}
