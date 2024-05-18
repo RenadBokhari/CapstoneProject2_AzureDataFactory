@@ -3,8 +3,11 @@
 	"properties": {
 		"description": "After copying the data from source \"Source_posts\" we will store it in the Datalake in specific folder for \"Destination_posts\" which is the destination.",
 		"linkedServiceName": {
-			"referenceName": "Linkeserviced_Datalake",
-			"type": "LinkedServiceReference"
+			"referenceName": "LinkedService_Datalake_SystemManaged",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"ls_prm_service_endpoint": "https://capstone2group8storage.blob.core.windows.net/"
+			}
 		},
 		"annotations": [],
 		"type": "Parquet",
