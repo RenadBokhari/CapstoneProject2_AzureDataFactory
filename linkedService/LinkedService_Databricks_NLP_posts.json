@@ -2,7 +2,7 @@
 	"name": "LinkedService_Databricks_NLP_posts",
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
-		"description": "Link the pipeline with the Databricks notebook for NLP",
+		"description": "Link the pipeline with the Databricks notebook \nNote:\nIt is NOT ONLY for NLP, it used to link for all pipelines and Databricks.\nBut We use unappropriated name here.",
 		"annotations": [],
 		"type": "AzureDatabricks",
 		"typeProperties": {
