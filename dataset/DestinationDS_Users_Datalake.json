@@ -3,8 +3,11 @@
 	"properties": {
 		"description": "After copying th data from source we will store it in the Datalake which is the destination.",
 		"linkedServiceName": {
-			"referenceName": "Linkeserviced_Datalake",
-			"type": "LinkedServiceReference"
+			"referenceName": "LinkedService_Datalake_SystemManaged",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"ls_prm_service_endpoint": "https://capstone2group8storage.blob.core.windows.net/"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
