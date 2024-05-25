@@ -1,3 +1,6 @@
 # CaptoneProject2-AzureDataFactory
 
-https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1#G1Kehnw4CBZlqjKnxYXUZf4UrfMH3c_WB2
+
+
+![image](https://github.com/RenadBokhari/CapstoneProject2_AzureDataFactory/assets/126735409/2b0fa256-8d0c-4f86-9d50-c8f55e8030a9)
+
